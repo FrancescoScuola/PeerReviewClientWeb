@@ -1,19 +1,147 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PeerReview</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-    
-    <h1>PeerReview</h1>
+<html lang="it">
 
-    <p><a href="login.html">Login</a></p>
-    <p><a href="dashboard_student.html">studente</a></p>
-    <p><a href="dashboard_teacher.html">insegnante</a></p>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PeerReview - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    .hero-section {
+      background-color: #D0DDD7;
+      color: black;
+      text-align: center;
+      vertical-align: middle;
+      height: 200px;
+    }
+
+    .icons {
+      font-size: 46px;
+    }
+
+    .card {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">PeerReview</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-section">
+    <div class="container align-middle">
+      <img src="/assets/images/logo.png" alt="PeerReview platform logo" height="200px">
+    </div>
+  </header>
+
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Benvenuto su PeerReview</h2>
+    <p class="text-center mb-5">PeerReview è una piattaforma innovativa che facilita la revisione tra studenti,
+      permettendo loro di collaborare e migliorare insieme. Registrati per entrare a far parte della community, accedere
+      a feedback mirati e migliorare le tue competenze.</p>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col">
+
+        <div class="card  mb-12">
+          <div class="row g-0">
+            <div class="col-md-2 text-center align-middle">
+              <span class="bi bi-door-open icons"></span>
+            </div>
+            <div class="col-md-10">
+              <div class="card-body">
+                <h5 class="card-title">Login</h5>
+                <p class="card-text">Accedi al tuo account per iniziare a utilizzare PeerReview e connetterti con i tuoi
+                  compagni di classe.</p>
+                <p><a class="btn btn-outline-primary" href="login.html">Login</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-12  mt-2">
+          <div class="row g-0">
+            <div class="col-md-2 text-center align-middle">
+              <i class="bi bi-box-arrow-in-right icons"></i>
+            </div>
+            <div class="col-md-10">
+              <div class="card-body">
+                <h5 class="card-title">Regitrati al sito</h5>
+                <p class="card-text">Crea un account su PeerReview per entrare a far parte della community e migliorare
+                  le tue competenze con il supporto reciproco.</p>
+                <p><a class="btn btn-outline-primary" href="#"><del>Registrati</del></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-12 mt-2">
+          <div class="row g-0">
+            <div class="col-md-2 text-center align-middle">
+              <i class="bi bi-pencil icons"></i>
+            </div>
+            <div class="col-md-10">
+              <div class="card-body">
+                <h5 class="card-title">Iscriviti alla classe</h5>
+                <p class="card-text">Unisciti alla tua classe per iniziare a condividere e ricevere feedback sulle tue
+                  revisioni dagli altri studenti.</p>
+                <p><a class="btn btn-outline-primary" href="#"><del>Iscriviti</del></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <script src="./assets/js/config.js"></script>
+  <script src="./assets/js/helper.js"></script>
+
+
+
+  <script>
+    if (isLoggedIn) {
+      const role = getRole();
+      if(role == ROLES.STUDENT){
+        window.location.href = "dashboard_student.html";
+      }
+      if(role ==ROLES.TEACHER){
+        window.location.href = "dashboard_teacher.html";        
+      }      
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</body>
+
 </html>

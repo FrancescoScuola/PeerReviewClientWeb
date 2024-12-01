@@ -10,11 +10,35 @@
 </head>
 
 <body>
-    <h1>Dashboard insegnante</h1>  
 
-    <p><a href="login.html">Login</a></p>
-    <p><a href="index.html">index</a></p>
-    <p><a href="dashboard_student.html">studente</a></p>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">PeerReview</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    
+
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>Dashboard insegnante</h1>  
+            <br>
+            <div id="ph_main"></div>
+          </div>
+
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -24,37 +48,21 @@
     <script src="./assets/js/helper.js"></script>
 
     <script>
-
         console.log("Tutti i cookie disponibili:", document.cookie);
-
-
-
         async function loadLessions() {
-
             //return "PeerReview/Lessons/Summary/Student/" + website + "/" + (int)role + "/" + courseId + "/" + token.ToString();
             let token = getToken();
             let role = getRole();
             let courseId = getCourseId();
+            let roleAuth = getRoleToken();
             let url = `${CONFIG.API_BASE_PEER_REVIEW_URL}/Lessons/Summary/Teacher/${CONFIG.WEBSITE_ID}/${role}/${courseId}/${token}`;
-            console.log("URL:", url);
-
-            const response = await fetch(url, {
-                method: "GET",
-                credentials: "include",
-            });
-
-            console.log("Response:", response); 
-
-
-
-
+            let lessions = await HttpGet(url,roleAuth);
+            console.log("lessions: ");
+            console.log(lessions);
         }
-
         document.addEventListener("DOMContentLoaded", async function () {
             await loadLessions();
         });
-
-
     </script>
 
 

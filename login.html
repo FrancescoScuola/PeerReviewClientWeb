@@ -11,37 +11,79 @@
 
 <body>
 
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">PeerReview</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
-        <div class="mb-3">
-            <label for="inputEmail" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
-        </div>
+        <div class="row">
 
-        <div class="mb-3">
-            <label for="inputPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword">
-        </div>
+            <div class="col-8">
 
-        <div class="mb-3">
-            <label for="inputClassID" class="form-label">Class id</label>
-            <input type="number" class="form-control" id="inputClassID">
-        </div>
+                <h2 class=" mt-5">Login</h2>
 
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="inputIsTeacher">
-            <label class="form-check-label" for="inputIsTeacher">Teacher</label>
+                <div class="mb-3 mt-3">
+                    <label for="inputEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword">
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputClassID" class="form-label">Class id</label>
+                    <input type="number" class="form-control" id="inputClassID">
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="inputIsTeacher">
+                    <label class="form-check-label" for="inputIsTeacher">Teacher</label>
+                </div>
+
+                <br><br>
+
+                <a type="submit" class="btn btn-primary btn-lg" onclick="submit()">Submit</a>
+
+            </div>
+            <div class="col-4">
+                <div class="container align-middle mt-4">
+                    <img src="/assets/images/logo.png" alt="PeerReview platform logo" height="200px">
+                </div>
+            </div>
         </div>
-        <a type="submit" class="btn btn-primary" onclick="submit()">Submit</a>
     </div>
 
+    <br><br>
 
-    <p><a href="index.html">index</a></p>
-    <p><a href="dashboard_student.html">studente</a></p>
-    <p><a href="dashboard_teacher.html">insegnante</a></p>
-    
     <script src="./assets/js/config.js"></script>
+    <script src="./assets/js/helper.js"></script>
 
     <script>
+
+        if (isLoggedIn) {
+            const role = getRole();
+            if (role == ROLES.STUDENT) {
+                window.location.href = "dashboard_student.html";
+            }
+            if (role == ROLES.TEACHER) {
+                window.location.href = "dashboard_teacher.html";
+            }
+        }
 
         async function submit(event) {
             try {
@@ -52,41 +94,34 @@
                 const classID = parseInt(document.getElementById("inputClassID").value);
                 const isTeacher = document.getElementById("inputIsTeacher").checked;
                 const role = isTeacher ? ROLES.TEACHER : ROLES.STUDENT;
-
+                // Autentificazione tramite cookie
                 let token = await getTokenLogin(email, password);
 
-                console.log(document.cookie);
-
-                if (token != null) {                    
+                if (token != null) {
+                    // Check del ruolo
                     let data = await setRoleCookie(role, classID, CONFIG.WEBSITE_ID);
-                    if(data != null){
+                    if (data != null) {
                         console.log("data:", data);
+                        const roleAuth = data.role_auth;
                         localStorage.setItem(CONFIG.LOCAL_STORAGE_TOKEN_KEY, token);
+                        localStorage.setItem(CONFIG.LOCAL_STORAGE_TOKEN_ROLE_KEY, roleAuth);
                         localStorage.setItem(CONFIG.LOCAL_STORAGE_ROLE, role);
                         localStorage.setItem(CONFIG.LOCAL_STORAGE_COURSE_ID_KEY, classID);
-                        localStorage.setItem(CONFIG.LOCAL_STORAGE_SW_VERSION, data);
-                        /*
-                        api_version: "0.6.2"
-                        class_name: "TEST"
-                        message: "-"
-                        role: "teacher"
-                        software_version: "0.6.5"
-                        */
+                        localStorage.setItem(CONFIG.LOCAL_STORAGE_SW_VERSION, JSON.stringify(data));
+
+                        if (isTeacher) {
+                            window.location.href = "dashboard_teacher.html";
+                        } else {
+                            window.location.href = "dashboard_student.html";
+                        }
                     }
-                    
-
-
                 } else {
                     alert("Errore durante il login. Verifica le tue credenziali e riprova.");
                 }
-
             } catch (error) {
                 alert("Something went wrong. Please try again later." + error);
             }
-
-
             console.log("Tutti i cookie disponibili 2 :", document.cookie);
-
         }
 
         async function getTokenLogin(email, password) {
@@ -108,11 +143,9 @@
                     credentials: "include", // Necessario per i cookie
                     body: JSON.stringify(payload)
                 });
-
                 if (!response.ok) {
                     throw new Error("Errore durante il login");
                 }
-
                 // Estrai il token dal corpo della risposta
                 const data = await response.json();
                 console.log("Login avvenuto con successo:", data);
@@ -123,12 +156,11 @@
                 console.error("Errore:", error);
                 throw error; // Propaga l'errore
             }
-
             return null;
         }
 
         async function setRoleCookie(role, course_class_id, website) {
-            
+
             const payload = {
                 role: role,
                 course_class_id: course_class_id,
@@ -150,19 +182,15 @@
                 if (!response.ok) {
                     throw new Error("Errore durante il il token del ruolo");
                 }
-
                 // Estrai il token dal corpo della risposta
                 const data = await response.json();
                 console.log("Role avvenuto con successo:", data);
                 return data;
-
             } catch (error) {
                 console.error("Errore:", error);
                 throw error; // Propaga l'errore
             }
-
             return null;
-
         }
 
     </script>

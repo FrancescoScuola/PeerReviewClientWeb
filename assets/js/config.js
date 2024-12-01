@@ -4,6 +4,7 @@ const CONFIG = {
     WEBSITE_ID: 8,
     DEFAULT_LANGUAGE: "it",
     LOCAL_STORAGE_TOKEN_KEY: "KeyAuthToken",
+    LOCAL_STORAGE_TOKEN_ROLE_KEY: "KeyRoleToken",
     LOCAL_STORAGE_COURSE_ID_KEY: "KeyCourseId",
     LOCAL_STORAGE_ROLE: "KeyRole",
     LOCAL_STORAGE_CLASS_NAME: "KeyClassName",

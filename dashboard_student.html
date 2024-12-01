@@ -28,16 +28,15 @@
         console.log("Tutti i cookie disponibili:", document.cookie);
 
         async function loadLessions() {
-            let token = getToken();
-            let role = getRole();
-            let courseId = getCourseId();
+            const token = getToken();
+            const role = getRole();
+            const courseId = getCourseId();
+            const roleAuth = getRoleToken();
+
             let url = `${CONFIG.API_BASE_PEER_REVIEW_URL}/Lessons/Summary/Student/${CONFIG.WEBSITE_ID}/${role}/${courseId}/${token}`;
-            console.log("URL:", url);
-            const response = await fetch(url, {
-                method: "GET",
-                credentials: "include",
-            });
-            console.log("Response:", response.body);
+            let lessions = HttpGet(url);
+            console.log("lessions: ");
+            console.log(lessions);
         }
 
         document.addEventListener("DOMContentLoaded", async function () {
