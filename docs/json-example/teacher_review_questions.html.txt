@@ -1,0 +1,54 @@
+2025-02-01 12:28:41.0410 | INFO | PeerReview/Question/Teacher/CorrectAnswerToReview/8/2/4/164521b7-2ef4-4842-a647-98cfb95065b3/-1
+
+[
+    {
+        "id": 1,
+        "question_text": "Come è nata Paperopoli e chi l'ha fondata?",
+        "created_at": null,
+        "answers": null,
+        "class_id": 0,
+        "answer": "Paperopoli è stata fondata da Paperon de' Paperoni, uno dei personaggi principali della serie a fumetti Disney. La città è stata creata dall'autore Carl Barks nel 1952, all'interno di una storia intitolata \"Zio Paperone e il segreto di Paperopoli\". Paperon de' Paperoni ha investito la sua fortuna accumulata in varie avventure per costruire la città e trasformarla in un luogo fiorente di opportunità e avventure per i suoi abitanti. Essa è diventata il centro delle avventure dei paperi e dei loro amici, rappresentando un simbolo di ricchezza, avventura e intraprendenza.",
+        "answer_review_status": 0
+    },
+    {
+        "id": 2,
+        "question_text": "Quali sono i luoghi più importanti di Paperopoli?",
+        "created_at": null,
+        "answers": null,
+        "class_id": 0,
+        "answer": "I luoghi più importanti di Paperopoli includono la Piazza del Municipio, dove si trovano l'ufficio del sindaco Paperone e la Banca dei Paperi. Altro luogo significativo è la Casa dei Paperi, dimora di Paperino e dei suoi nipoti Qui, Quo e Qua. Non possiamo dimenticare il Deposito del Maniero, dove sono conservate le numerosissime fortune di Paperone. Infine, il giornale locale Il Paperino Quotidiano ha un ruolo fondamentale nella vita della città.",
+        "answer_review_status": 0
+    },
+    {
+        "id": 3,
+        "question_text": "Come descriveresti la personalità di Paperino?",
+        "created_at": null,
+        "answers": null,
+        "class_id": 0,
+        "answer": "Paperino è un personaggio allegro, impulsivo, un po' sfortunato ma sempre ottimista. È molto generoso e disponibile con gli amici, anche se talvolta può risultare un po' permaloso. Ha un grande cuore e un'incredibile capacità di reagire alle situazioni più strampalate con un pizzico di ingenuità e tanta allegria. In definitiva, Paperino è un personaggio vivace e dai tratti comici che cerca sempre di vedere il lato positivo delle cose.",
+        "answer_review_status": 0
+    },
+    {
+        "id": 4,
+        "question_text": "Qual è il ruolo di Zio Paperone nella società di Paperopoli?",
+        "created_at": null,
+        "answers": null,
+        "class_id": 0,
+        "answer": "Zio Paperone ha un ruolo fondamentale nella società di Paperopoli in quanto rappresenta l'archetipo del capitalista ricco e avido, ma allo stesso tempo intelligente e astuto. Con le sue avventure e i suoi affari finanziari, Zio Paperone gioca un ruolo di guida e ispirazione per gli abitanti di Paperopoli, insegnando loro l'importanza del risparmio, dell'astuzia e del duro lavoro per raggiungere il successo economico. Tuttavia, nonostante il suo carattere spesso egoista, mostra anche un lato generoso e altruista, dimostrando che la ricchezza e il successo possono essere messi al servizio della comunità.",
+        "answer_review_status": 0
+    },
+    {
+        "id": 5,
+        "question_text": "Cosa rappresentano i Bassotti per gli abitanti di Paperopoli?",
+        "created_at": null,
+        "answers": null,
+        "class_id": 0,
+        "answer": "I Bassotti rappresentano un gruppo di antagonisti che causano spesso problemi e situazioni di conflitto agli abitanti di Paperopoli. Sono spesso visti come individui disonesti, ladri e imbroglioni, pronti a mettere in difficoltà Paperino e i suoi amici. Nonostante ciò, la presenza dei Bassotti è un elemento ricorrente nella vita dei paperi e contribuisce a mantenere viva l'azione e l'avventura nella città.",
+        "answer_review_status": 0
+    }
+]
+_______________________________________________________________________________________________________________
+
+2025-02-01 12:29:54.4164 | INFO | PeerReview/Question/Teacher/CorrectAnswerToReview/
+
+{"lesson_id":114,"role":2,"website":8,"token":"164521b7-2ef4-4842-a647-98cfb95065b3","answer":"La GPU, o unità di elaborazione grafica, è un componente hardware progettato per gestire e accelerare la rappresentazione grafica e le operazioni computazionali complesse. La sua architettura parallela, è in grado di elaborare milioni di operazioni simultaneamente, rendendola essenziale per il rendering di giochi, applicazioni di grafica 3D e l'accelerazione di calcoli scientifici e machine learning. Oltre alla grafica, le GPU sono sempre più utilizzate in ambiti come l'intelligenza artificiale per gestire grandi volumi di dati in modo efficace.","is_answer_edit":true,"course_class_id":4} 

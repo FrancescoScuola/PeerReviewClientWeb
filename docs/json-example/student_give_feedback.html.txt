@@ -1,0 +1,5 @@
+2025-02-01 14:46:22.2119 | INFO | PeerReview/Feedback/8/1/25/ea51e63c-6a63-4833-ac39-dfd23f76b4ea
+{"id":788,"question":"Come ha contribuito il telescopio di Galileo alla scienza del Rinascimento?","answer_text":"Terra intorno al sole?"} 
+
+2025-02-01 14:48:02.6513 | INFO | PeerReview/Feedback
+{"lesson_id":25,"id":788,"feedback_text":"Penso corretto","grade":4.0,"missing_elements":"Nulla","role":1,"website":8,"token":"ea51e63c-6a63-4833-ac39-dfd23f76b4ea","is_chat_gpt":1} 
