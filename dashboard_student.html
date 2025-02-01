@@ -34,7 +34,7 @@
             const roleAuth = getRoleToken();
 
             let url = `${CONFIG.API_BASE_PEER_REVIEW_URL}/Lessons/Summary/Student/${CONFIG.WEBSITE_ID}/${role}/${courseId}/${token}`;
-            let lessions = HttpGet(url);
+            let lessions = HttpGet(url,roleAuth);
             console.log("lessions: ");
             console.log(lessions);
         }
